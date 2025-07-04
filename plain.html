@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Learn to Turn A.I. Into Cash - Join Fidelis Ozuawala's Exclusive Inner Circle" />
+    <title>Learn to Turn A.I. Into Cash - Fidelis Ozuawala</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.App {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+}
+
+.hero-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 40%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 70% 60%, rgba(147, 51, 234, 0.1) 0%, transparent 50%);
+  backdrop-filter: blur(1px);
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.hero-image:hover {
+  transform: scale(1.05);
+}
+
+.hero-image-glow {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: linear-gradient(45deg, #3b82f6, #9333ea, #06b6d4);
+  border-radius: 32px;
+  z-index: -1;
+  opacity: 0.3;
+  filter: blur(20px);
+  animation: glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.6; }
+}
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.hero-title .highlight {
+  background: linear-gradient(135deg, #3b82f6 0%, #9333ea 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+.hero-title .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #3b82f6 0%, #9333ea 100%);
+  border-radius: 2px;
+  opacity: 0.6;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin-bottom: 30px;
+}
+
+/* Opt-in Form */
+.opt-in-container {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.opt-in-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #e2e8f0;
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  padding: 16px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.form-group input::placeholder {
+  color: #94a3b8;
+}
+
+/* CTA Buttons */
+.cta-button {
+  position: relative;
+  padding: 18px 40px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cta-button.primary {
+  background: linear-gradient(135deg, #3b82f6 0%, #9333ea 100%);
+  color: white;
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+}
+
+.cta-button.secondary {
+  background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+  color: white;
+  box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+}
+
+.cta-button.secondary:hover {
+  box-shadow: 0 15px 35px rgba(245, 158, 11, 0.4);
+}
+
+.button-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.cta-button:hover .button-glow {
+  left: 100%;
+}
+
+.cta-button span {
+  position: relative;
+  z-index: 2;
+}
+
+/* Section Animations */
+section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 60px;
+  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Why You Should Join Section */
+.why-join-section {
+  padding: 120px 0;
+  background: linear-gradient(135deg, rgba(15, 15, 35, 0.9) 0%, rgba(26, 26, 46, 0.9) 100%);
+  backdrop-filter: blur(20px);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.benefit-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.benefit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #3b82f6 0%, #9333ea 100%);
+}
+
+.benefit-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.benefit-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5));
+}
+
+.benefit-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.benefit-card p {
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+/* About Section */
+.about-section {
+  padding: 120px 0;
+  background: linear-gradient(135deg, rgba(22, 33, 62, 0.9) 0%, rgba(15, 15, 35, 0.9) 100%);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.about-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #cbd5e1;
+}
+
+.quote-container {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 30px;
+  border-left: 4px solid #3b82f6;
+}
+
+.featured-quote {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: #ffffff;
+  line-height: 1.5;
+  position: relative;
+}
+
+.quote-mark {
+  font-size: 2rem;
+  color: #3b82f6;
+  font-weight: 800;
+}
+
+.quote-author {
+  display: block;
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.about-image {
+  display: flex;
+  justify-content: center;
+}
+
+.about-img {
+  width: 100%;
+  max-width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.about-img:hover {
+  transform: scale(1.05);
+}
+
+/* Showcase Section */
+.showcase-section {
+  padding: 120px 0;
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(15, 15, 35, 0.9) 100%);
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+}
+
+.showcase-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.showcase-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(59, 130, 246, 0.3);
+}
+
+.showcase-image {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.showcase-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.showcase-card:hover .showcase-image img {
+  transform: scale(1.1);
+}
+
+.showcase-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(59, 130, 246, 0.8), rgba(147, 51, 234, 0.8));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.showcase-card:hover .showcase-overlay {
+  opacity: 1;
+}
+
+.play-button {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #3b82f6;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.play-button:hover {
+  transform: scale(1.1);
+  background: white;
+}
+
+.stats {
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.showcase-content {
+  padding: 30px;
+}
+
+.showcase-content h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.showcase-content p {
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+/* Final CTA Section */
+.final-cta-section {
+  padding: 120px 0;
+  background: linear-gradient(135deg, rgba(15, 15, 35, 0.95) 0%, rgba(22, 33, 62, 0.95) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.final-cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+}
+
+.cta-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cta-subtitle {
+  font-size: 1.3rem;
+  color: #cbd5e1;
+  margin-bottom: 50px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.final-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.final-opt-in-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.final-opt-in-form .form-group input {
+  padding: 16px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.final-opt-in-form .form-group input:focus {
+  outline: none;
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Floating Elements */
+.floating-elements {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-element {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+  animation: float 10s infinite ease-in-out;
+}
+
+.element-1 {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.element-2 {
+  top: 60%;
+  right: 15%;
+  animation-delay: 3s;
+}
+
+.element-3 {
+  bottom: 20%;
+  left: 20%;
+  animation-delay: 6s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .hero-image-container {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .showcase-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-title {
+    font-size: 2rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .opt-in-container,
+  .final-form-container {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .hero-image-container {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .benefit-card,
+  .showcase-card {
+    margin: 0 10px;
+  }
+  
+  .cta-button {
+    padding: 16px 30px;
+    font-size: 1rem;
+  }
+}    </style>
+</head>
+<body>
+<div id="top"></div>
+<div class="App">
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section visible">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="hero-left">
+                <div class="hero-image-container">
+                    <img src="https://images.pexels.com/photos/9221770/pexels-photo-9221770.jpeg" alt="Fidelis Ozuawala - AI Expert" class="hero-image" />
+                    <div class="hero-image-glow"></div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <h1 class="hero-title">
+                    Learn to Turn <span class="highlight">A.I.</span> Into Cash
+                </h1>
+                <p class="hero-subtitle">
+                    Join Fidelis Ozuawala's Exclusive Inner Circle to Learn Prompt Engineering,
+                    A.I. Monetization &amp; More.
+                </p>
+                <div id="opt-in-form" class="opt-in-container">
+                    <form action="https://mailer.fidelisozuawala.com/subscribe" method="POST" accept-charset="utf-8" class="opt-in-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" placeholder="Enter your full name" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" placeholder="Enter your email address" required />
+                        </div>
+                        <div style="display:none">
+                            <label for="hp">HP</label>
+                            <input type="text" name="hp" id="hp" />
+                        </div>
+                        <input type="hidden" name="list" value="892sYrpE76387638P0hXpIyaR7763w" />
+                        <input type="hidden" name="subform" value="yes" />
+                        <button type="submit" name="submit" id="submit" class="cta-button primary">
+                            <span>Join the Inner Circle</span>
+                            <div class="button-glow"></div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why You Should Join Section -->
+    <section id="why-join" class="why-join-section visible">
+        <div class="container">
+            <h2 class="section-title">Why You Should Join</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🚀</div>
+                    <h3>Become a Prompt Engineer Fast</h3>
+                    <p>Master the art of AI communication and unlock unlimited earning potential</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Build &amp; Sell Digital Products</h3>
+                    <p>Create high-value digital products using AI tools and scale your business</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📈</div>
+                    <h3>Scale Small Businesses with A.I.</h3>
+                    <p>Learn how AI transforms small businesses into profitable enterprises</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Monetize ChatGPT &amp; Midjourney</h3>
+                    <p>Turn popular AI tools into consistent income streams</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛠️</div>
+                    <h3>Build SaaS with No Code</h3>
+                    <p>Create sellable micro-tools and SaaS products without programming</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Turn AI Tools into Income</h3>
+                    <p>Convert fun AI experiments into profitable business opportunities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Fidelis Section -->
+    <section id="about" class="about-section visible">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About Fidelis Ozuawala</h2>
+                    <p class="about-description">
+                        Fidelis Ozuawala is a seasoned, value-driven online sensation and blogger with over 15 years of experience.
+                        A crypto expert and mentor, he's been featured in top media publications. He shares practical tips on
+                        blogging, A.I., and his real estate development journey. Fidelis stands out for giving out high-value
+                        content for free — now imagine being in his private circle.
+                    </p>
+                    <div class="quote-container">
+                        <blockquote class="featured-quote">
+                            <span class="quote-mark">"</span>
+                            A.I. is the future. Learn it now, earn from it forever.
+                            <span class="quote-mark">"</span>
+                        </blockquote>
+                        <cite class="quote-author">– Fidelis Ozuawala</cite>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643" alt="Fidelis Ozuawala at work" class="about-img" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Section -->
+    <section id="showcase" class="showcase-section visible">
+        <div class="container">
+            <h2 class="section-title">Proof of Success</h2>
+            <div class="showcase-grid">
+                <div class="showcase-card">
+                    <div class="showcase-image">
+                        <img src="https://images.unsplash.com/photo-1655393001768-d946c97d6fd1" alt="AI Generated Content" />
+                        <div class="showcase-overlay"><div class="play-button">▶</div></div>
+                    </div>
+                    <div class="showcase-content">
+                        <h3>This AI video hit 100K+ views in 3 days</h3>
+                        <p>Generated using advanced AI prompting techniques</p>
+                    </div>
+                </div>
+                <div class="showcase-card">
+                    <div class="showcase-image">
+                        <img src="https://images.pexels.com/photos/16053029/pexels-photo-16053029.jpeg" alt="AI Tools Interface" />
+                        <div class="showcase-overlay"><div class="play-button">▶</div></div>
+                    </div>
+                    <div class="showcase-content">
+                        <h3>Styled and generated using Midjourney + Veo3</h3>
+                        <p>Professional quality content created in minutes</p>
+                    </div>
+                </div>
+                <div class="showcase-card">
+                    <div class="showcase-image">
+                        <img src="https://images.unsplash.com/photo-1648134859182-98df6e93ef58" alt="AI Success Story" />
+                        <div class="showcase-overlay"><div class="stats">$15K</div></div>
+                    </div>
+                    <div class="showcase-content">
+                        <h3>Proof AI can sell. Learn how I did it.</h3>
+                        <p>Real results from AI-powered digital products</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="final-cta" class="final-cta-section visible">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Start Your A.I. Journey?</h2>
+                <p class="cta-subtitle">
+                    Join thousands of students already transforming their lives with AI
+                </p>
+                <div class="final-form-container">
+                    <form action="https://mailer.fidelisozuawala.com/subscribe" method="POST" accept-charset="utf-8" class="final-opt-in-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Your Name" required />
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Your Email" required />
+                            </div>
+                        </div>
+                        <div style="display:none"><input type="text" name="hp" /></div>
+                        <input type="hidden" name="list" value="892sYrpE76387638P0hXpIyaR7763w" />
+                        <input type="hidden" name="subform" value="yes" />
+                        <button type="submit" class="cta-button secondary">
+                            <span>Join Now – Start Learning & Earning with A.I.</span>
+                            <div class="button-glow"></div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Background Elements -->
+    <div class="floating-elements">
+        <div class="floating-element element-1"></div>
+        <div class="floating-element element-2"></div>
+        <div class="floating-element element-3"></div>
+    </div>
+</div>
+</body>
+</html>
